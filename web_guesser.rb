@@ -1,6 +1,7 @@
 require 'sinatra'
+require 'sinatra/reloader'
 
 get '/' do
-  "Hello, World!"
-  "Hi, Mom!"
+  rand_num = rand(101)
+  "THE PASSWORD IS #{rand_num}!!!!!"
 end
