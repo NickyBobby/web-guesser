@@ -1,7 +1,7 @@
 require 'sinatra'
 require 'sinatra/reloader'
 
-SECRET_NUMBER = rand(100)
+SECRET_NUMBER = rand(101)
 
 get '/' do
   guess = params["guess"].to_i
@@ -30,16 +30,12 @@ def check_guess(guess)
 end
 
 def check_guess_for_color(guess)
-  if guess >= SECRET_NUMBER + 5
+  if guess >= SECRET_NUMBER + 5 || guess <= SECRET_NUMBER - 5
     "red"
-  elsif guess > SECRET_NUMBER
+  elsif guess > SECRET_NUMBER || guess < SECRET_NUMBER
     "pink"
   elsif guess == SECRET_NUMBER
     "white"
-  elsif guess <= SECRET_NUMBER - 5
-    "red"
-  elsif guess < SECRET_NUMBER
-    "pink"
   end
 end
 
